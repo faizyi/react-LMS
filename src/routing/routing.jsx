@@ -28,6 +28,7 @@ export default function Routing() {
             <Router>
           {/* <AdminDashboard> */}
             <Routes>
+                <Route path='/react-LMS' element={<Login/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/signup' element={<Signup/>}/>
                 <Route path='/admin' element={<AdminDashboard/>}/>
