@@ -175,6 +175,29 @@ button:hover {
 }
 
   /* Table Styles */
+  .table-container{
+    max-height: 100%;
+    overflow-y: auto;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 30px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
   table {
     width: 100%;
     border-collapse: collapse;
@@ -259,7 +282,7 @@ tr:hover {
 
 
 
-@media screen and (min-width: 320px) and (max-width: 510px){
+@media screen and (min-width: 390px) and (max-width: 510px){
     .heading-container .heading h1{
         font-size: 30px;
     }
@@ -281,24 +304,14 @@ tr:hover {
         border-radius: 10px;
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }    
-    th, td {
-        font-size: 10px;
-        padding: 5px;
-    }
-    /* Student Info Styles */
-    .student-info img {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .student-info p {
-        font-size: 10px;
-    }
+    } 
+    /* .enrolled{
+        display: none;
+    }    */
 }
 
 
-@media screen and (min-width: 120px) and (max-width: 319px){
+@media screen and (min-width: 120px) and (max-width: 389px){
     .student-navbar .user-profile {
         font-size: 18px;
         width: 20px;
@@ -311,10 +324,10 @@ tr:hover {
         font-size: 10px;
     }
     .heading-container .heading h1{
-        font-size: 20px;
+        font-size: 30px;
     }
     .heading-container .heading h3{
-        font-size: 18px;
+        font-size: 20px;
     } 
     .heading-container .heading p{
         font-size: 10px;
@@ -323,7 +336,10 @@ tr:hover {
     .all-students .heading h2{
         font-size: 15px;
     }
-    
+    /* .table-container{
+        max-height: 100%;
+        overflow-y: auto;
+      } */
       /* Table Styles */
       table {
         width: 100%;
@@ -333,16 +349,24 @@ tr:hover {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }    
     th, td {
-        font-size: 8px;
-        padding: 5px;
+        /* padding: 5px; */
+        /* padding-top: 50px; */
     }
+    /* .enrolled{
+        display: none;
+    }  */
+    /* table .city{
+        font-size: 12px;
+    } */
     /* Student Info Styles */
-    .student-info img {
-        width: 20px;
-        height: 20px;
+     /* .student-info img {
+        width: 30px;
+        height: 30px;
     }
-    
-    .student-info p {
-        font-size: 8px;
+    .student-info .email{
+        font-size: 10px;
     }
+    .student-info .name {
+        font-size: 10px;
+    } */
 }

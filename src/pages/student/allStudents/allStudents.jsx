@@ -65,7 +65,7 @@ export default function AllStudents() {
         <h2>{studentData.length} {students}</h2>
             </div>
 
-
+            <div className='table-container'>
         <table>
             <thead>
                 <tr>
@@ -82,17 +82,19 @@ export default function AllStudents() {
                             <td>
                                 <div className='student-info'>
                                     <div className='student-pic'><img src={data.studentProfile} alt="" /></div>
-                                    <div><p style={{textTransform : "capitalize"}} className='name'>{data.studentName}</p><p>{data.studentEmail}</p></div>
+                                    <div><p style={{textTransform : "capitalize"}} className='name'>{data.studentName}</p><p className='email'>{data.studentEmail}</p></div>
                                 </div>
                             </td>
                             <td className='enrolled'>{data.studentCourse}</td>
-                            <td>{data.city}</td>
+                            <td className='city'>{data.city}</td>
                         </tr>
                         )
                     })
                 }
             </tbody>
         </table>
+        </div>
+
         </div>
             </div>
         }
