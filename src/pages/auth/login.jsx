@@ -68,9 +68,9 @@ export default function Login() {
     }
   };
   return (
-    <div className='auth'>
+    <div className='login-auth'>
       {
-        loader ? <div className='loader-container'><div className='loader'></div></div> :
+        loader ? <div className='loader-container'><div className='loader'></div><p>Loading.....</p></div> :
           <div className="login-container">
             <div className="login-header">
               <h2>Login</h2>

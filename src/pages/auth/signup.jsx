@@ -114,12 +114,9 @@ export default function Signup() {
     }
   };
   return (
-    <div className='auth'>
-      {/* <coursesCollection.Provider value={course}>
-
-      </coursesCollection.Provider> */}
+    <div className='signup-auth'>
       {
-        loader ? <div className='loader-container'><div className='loader'></div></div> :
+        loader ? <div className='loader-container'><div className='loader'></div><p>Loading.....</p></div> :
           <div className="signup-container">
             <div className="signup-header">
               <h2>Admission Form</h2>

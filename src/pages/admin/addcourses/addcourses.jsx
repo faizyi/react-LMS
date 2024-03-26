@@ -5,7 +5,7 @@ export default function AddCourses() {
   return (
     <div className='add-courses-btn'>
         <div className='btn'>
-        <FontAwesomeIcon icon={faPlus} />
+        <span><FontAwesomeIcon icon={faPlus} /></span>
         <button>Add Course</button>
         </div>
     </div>

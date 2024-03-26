@@ -107,7 +107,7 @@ export default function AdminDashboard() {
              <div className={`course-box-container ${active ? "display" : "course-box-container"}`}>
 
                 {
-                    loader ? <div className='loader-container'><div className='loader'></div></div> :
+                    loader ? <div className='loader-container'><div className='loader'></div><p>Loading.....</p></div> :
                     
             <div className='course-box'>
             <div className='heading'>
@@ -159,9 +159,8 @@ export default function AdminDashboard() {
         : ("")
         }
         {
-            !loader &&(  <div className='all-course-comp'>
-            <AvailableCourses/>
-           </div>)
+            !loader &&( <div className='available-courses'><AvailableCourses/></div>
+           )
         }
 
 

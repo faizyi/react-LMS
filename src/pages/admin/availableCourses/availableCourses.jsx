@@ -27,16 +27,16 @@ export default function AvailableCourses() {
   }, []);
   return (
     <div className='all-courses'>
-
         <div className='heading'>
         <h1>Available Courses</h1>
       </div>
+      <div className='all-course-container'>
       {
-        loader ? <div className='all-courses-loader'><div className='loader'></div></div> :
+        loader ? <div className='all-courses-loader'><div className='loader'></div><p>Loading.....</p></div> :
         <div>
           
 
-        <div>
+        
           {
         allCourses.map((items)=>{
           return(
@@ -50,9 +50,12 @@ export default function AvailableCourses() {
           )
         })
       }
-        </div>
+       
+
         </div>
       }
+
+</div>
 
     </div>
   )

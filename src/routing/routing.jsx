@@ -23,7 +23,7 @@ export default function Routing() {
   return (
     <div>
       {
-        loader ?  <div className='loader-container'><div className='loader'></div></div> :
+        loader ?  <div className='loader-container'><div className='loader'></div><p>Loading.....</p></div> :
         <div>
             <Router>
           {/* <AdminDashboard> */}

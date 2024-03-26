@@ -49,7 +49,7 @@ export default function AllStudents() {
   return (
     <div className='allstudents-container'>
         {
-            loader ? <div className='allstudent-loader'><div className='loader'></div></div> :
+            loader ? <div className='allstudent-loader'><div className='loader'></div><p>Loading.....</p></div> :
             <div>
                 <div  className='heading-container'>
                 <div className='heading'>
@@ -70,7 +70,7 @@ export default function AllStudents() {
             <thead>
                 <tr>
                     <th>Students</th>
-                    <th>Enrolled Courses</th>
+                    <th className='enrolled'>Enrolled Courses</th>
                     <th>City</th>
                 </tr>
             </thead>
@@ -85,7 +85,7 @@ export default function AllStudents() {
                                     <div><p style={{textTransform : "capitalize"}} className='name'>{data.studentName}</p><p>{data.studentEmail}</p></div>
                                 </div>
                             </td>
-                            <td>{data.studentCourse}</td>
+                            <td className='enrolled'>{data.studentCourse}</td>
                             <td>{data.city}</td>
                         </tr>
                         )

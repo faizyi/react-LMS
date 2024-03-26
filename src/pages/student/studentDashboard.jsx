@@ -66,7 +66,8 @@ export default function Studentdashboard() {
         <div className='student-header'>
         <nav className="student-navbar">
           <div className="navbar-left">
-            <img className='logo' src={logo} alt="" />
+            <h1 className='logo'>LMS</h1>
+            {/* <img className='logo' src={logo} alt="" /> */}
           </div>
           <div className="navbar-right">
             <div className="user-info" onClick={toggleDropdown}>
@@ -74,7 +75,7 @@ export default function Studentdashboard() {
                     loader ? <div className='student-loader'><div className='loader'></div></div> :
                     <img className='user-profile' src={profile} alt="" />
                 }
-              <p className="student-name">STUDENT <span style={{ color: "black" }}><FontAwesomeIcon icon={faCaretDown} /></span></p>
+              <p className="student">STUDENT <span style={{ color: "black" }}><FontAwesomeIcon icon={faCaretDown} /></span></p>
   
               {
                 courseData.map((data,index) => {
