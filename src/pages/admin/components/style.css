@@ -15,7 +15,6 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    box-shadow: 1px 1px 5px black;
     border-radius: 2px;
     border-bottom: 1px solid  rgb(235, 232, 232);
   }
@@ -136,7 +135,7 @@ body{
   }
 
 
-  @media screen and (min-width: 295px) and (max-width: 705px){
+  /* @media screen and (min-width: 295px) and (max-width: 705px){
     .admin{
       font-size: 13px;
       text-transform: capitalize;
@@ -146,17 +145,17 @@ body{
       width: 30px; 
       height: 30px; 
     }
-  }
+  } */
 
   @media screen and (min-width: 100px) and (max-width: 294px){
     .admin{
-      font-size: 10px;
+      font-size: 15px;
       text-transform: capitalize;
     }
     .user-picture {
-      font-size: 10px;
-      width: 20px; 
-      height: 20px; 
+      /* font-size: 15px; */
+      width: 35px; 
+      height: 35px; 
     }
     .dropdown-content {
       top: 70px;

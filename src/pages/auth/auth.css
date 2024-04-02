@@ -6,10 +6,6 @@
 body{
   background-color: #ffffff;
 }
-
-/* body::-webkit-scrollbar{
-  display: none;
-} */
 .login-auth{
   height: 100vh;
   display: flex;
@@ -61,6 +57,7 @@ body{
     color: #fff;
     cursor: pointer;
     transition: transform 0.3s;
+    transition: .5s ease-in-out;
   }
 
   .login-form button:active {
@@ -194,7 +191,6 @@ body{
     flex-direction: column;
   }
   .loader{
-    /* box-shadow: 1px 1px 5px black; */
     pointer-events: none;
     width: 50px;
     height: 50px;
@@ -203,7 +199,6 @@ body{
     border-top-color: #007bff;
     border-bottom-color: #007bff;
     border-right-color: #007bff;
-    /* border-left-color: #007bff; */
     animation: an2 1s ease infinite;
 }
 .loader-container p{
@@ -217,6 +212,7 @@ body{
         transform: rotate(1turn);
     }
 }
+
 
 
 @media screen and (min-width: 650px) and (max-width: 860px){

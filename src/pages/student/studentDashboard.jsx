@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 import './student.css'
-import logo from '../../assets/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faCaretDown,faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { auth, doc, db, collection, getDoc, onAuthStateChanged, query,getDocs,signOut } from '../../firebase/firebase';

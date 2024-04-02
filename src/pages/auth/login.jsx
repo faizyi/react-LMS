@@ -11,17 +11,9 @@ export default function Login() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const [showPassword, setShowPassword] = useState(false);
-  const [coursesName,setCoursesName]  = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-          const querySnapshot = await getDocs(collection(db, `Teachers`));
-          querySnapshot.forEach((doc) => {
-              const data = doc.data()
-              setCoursesName(data.courseName)              
-          });
-          }
-          fetchData()
-        }, [])
+  const [showIcon, setShowIcon] = useState({
+    visibility : "hidden"
+  });
   const handleSubmit = (e) => {
     setLoader(true);
     e.preventDefault();
@@ -32,7 +24,6 @@ export default function Login() {
         const userUid = userCredential.user.uid;
         typeCheck(userUid);
       })
-      // setLoader(false)
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -42,11 +33,6 @@ export default function Login() {
   };
   //typeCheck
   const typeCheck = async(uid) => {  
-    // const studentRef = doc(db, "Mobile Application", uid);
-    // const studentSnap = await getDoc(studentRef); 
-    // if (studentSnap.exists()) {
-    //   navigate("/studentdash");
-    // } else {
       const adminRef = doc(db, "Admin", uid);
       const adminSnap = await getDoc(adminRef);
       if (adminSnap.exists()) {
@@ -54,23 +40,21 @@ export default function Login() {
       } else {
         navigate("/studentdash") 
       }
-    // }
     setLoader(false); 
   }
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
-    const passwordInput = document.getElementById("password");
-    if (passwordInput.type === "password") {
-      passwordInput.type = "text";
+    if (passwordRef.type === "password") {
+      passwordRef.type = "text";
     } else {
-      passwordInput.type = "password";
+      passwordRef.type = "password";
     }
   };
   return (
     <div className='login-auth'>
       {
-        loader ? <div className='loader-container'><div className='loader'></div><p>Loading.....</p></div> :
+        loader ? <div className='loader-container'><div className='loader'></div></div> :
           <div className="login-container">
             <div className="login-header">
               <h2>Login</h2>
@@ -83,22 +67,20 @@ export default function Login() {
                 name="username"
                 placeholder="Enter your Email"
                 ref={emailRef}
-                // onChange={(e) => setUsername(e.target.value)}
                 required
               />
               <label htmlFor="password">Password *</label>
               <div className="password-input-container">
                 <input
+                onInput={()=>setShowIcon({visibility : passwordRef.current.value ? "visible" : "hidden"})}
                   type={showPassword ? "text" : "password"}
                   id="password"
                   name="password"
                   placeholder="Enter your Password"
                   ref={passwordRef}
-                  // maxLength={8}
-                  // onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-                <span className="toggle-password" onClick={togglePasswordVisibility}>
+                <span style={showIcon}  className="toggle-password" onClick={togglePasswordVisibility}>
                   <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
                 </span>
               </div>

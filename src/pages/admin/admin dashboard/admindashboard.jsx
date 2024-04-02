@@ -13,6 +13,7 @@ export default function AdminDashboard() {
     const [loader, setLoader] = useState(false);
     const coursePicRef = useRef(null);
     const [courseName,setCourseName] = useState('')
+    const [courseDescription,setCourseDescription] = useState('')
     const [teacherName,setTeacherName] = useState('')
     const [id,setId] = useState(null);
     const [showCourseBox, setShowCourseBox] = useState(false);
@@ -68,7 +69,8 @@ export default function AdminDashboard() {
                             courseName : courseName,
                             courseImg : downloadURL,
                             teacherName : teacherName,
-                            courseDays : selectedDays
+                            courseDays : selectedDays,
+                            courseDescription : courseDescription
                         });
                         setLoader(false)
                         setShowCourseBox(false)
@@ -109,14 +111,14 @@ export default function AdminDashboard() {
                 {
                     loader ? <div className='loader-container'><div className='loader'></div><p>Loading.....</p></div> :
                     
-            <div className='course-box'>
+            <div className={`course-box ${active ? "active" : "course-box"}`}>  
             <div className='heading'>
                 <h1>Add New Course</h1>
                 <span onClick={cancel}><FontAwesomeIcon icon={faXmark} /></span>
             </div>
 
             <form onSubmit={addCourseDetails} className="course-form">
-              <label htmlFor="coursename">Course Name</label>
+              <label htmlFor="coursename">Course Name *</label>
               <input
                 type="text"
                 id="coursename"
@@ -125,7 +127,20 @@ export default function AdminDashboard() {
                 required
                 onChange={(event)=>setCourseName(event.target.value)}
               />
-              <label htmlFor="Coursethumbnail">Course thumbnail</label>
+             <label htmlFor="Course Description">Course Description *</label>
+             <textarea onChange={(event)=>setCourseDescription(event.target.value)} 
+             required placeholder="Course Description" 
+             name="" id="" cols="30" rows="5"></textarea>
+              {/* <input
+              className='Course-Description'
+                type="text"
+                id="Course Description"
+                name="Course Description"
+                placeholder="Course Description"
+                required
+                onChange={(event)=>setCourseName(event.target.value)}
+              /> */}
+              <label htmlFor="Coursethumbnail">Course thumbnail *</label>
               <input
                 type="file"
                 id="Coursethumbnail"
@@ -134,17 +149,17 @@ export default function AdminDashboard() {
                 accept="image/*"
                 ref={coursePicRef}
               />
-              <label htmlFor="teachername">Teacher Name</label>
+              <label htmlFor="teachername">Teacher Name *</label>
               <input
                 type="text"
                 id="teachername"
                 name="teachername"
-                placeholder="Enter Teacher Name"
+                placeholder="Teacher Name"
                 required
                 onChange={(event)=>setTeacherName(event.target.value)}
               />
-              <label htmlFor="weeks">Select Days of Week</label>
-              <select  name="days" id="days"onChange={handleDayChange} >
+              <label htmlFor="weeks">Select Days of Week *</label>
+              <select required  name="days" id="days"onChange={handleDayChange} >
                 <option disabled value='Select' selected>Select</option>
                 <option value="Monday , Wednesday & Friday">Monday , Wednesday & Friday</option>
                 <option value="Tuesday , Thursday & Saturday">Tuesday , Thursday & Saturday</option>

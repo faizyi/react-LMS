@@ -168,7 +168,9 @@ button:hover {
     padding: 0 20px 0 20px;
 }
 .all-students .heading{
-    position: sticky;
+    position: static;
+    /* top: 123px; */
+    background-color: #ffffff;
 }
 .all-students .heading h2{
     font-weight: 600;
@@ -198,6 +200,9 @@ button:hover {
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+  /* .table-container{
+    overflow-x: auto;
+  } */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -205,21 +210,20 @@ button:hover {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-/* thead{
-    position: sticky;
-    top: 1%;
-} */
 
 th, td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
+.city{
+    text-align: right;
+}
 
 th {
-    background-color: #f2f2f2;
+    background-color: #007bff;
     font-weight: bold;
-    color: #333;
+    color: white;
 }
 
 td {
@@ -286,9 +290,6 @@ tr:hover {
     .all-students{
         padding: 0;
     }
-    .all-students .heading{
-        position: static;
-    }
     .heading-container .heading h1{
         font-size: 30px;
     }
@@ -311,9 +312,6 @@ tr:hover {
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     } 
-    /* .enrolled{
-        display: none;
-    }    */
 }
 
 
@@ -321,20 +319,6 @@ tr:hover {
     .all-students{
         padding: 0;
     }
-    .all-students .heading{
-        position: static;
-    }
-    /* .student-navbar .user-profile {
-        font-size: 18px;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        margin-right: 10px;
-    }
-    
-    .student-navbar .student {
-        font-size: 10px;
-    } */
     .heading-container .heading h1{
         font-size: 30px;
     }
@@ -348,11 +332,6 @@ tr:hover {
     .all-students .heading h2{
         font-size: 25px;
     }
-    /* .table-container{
-        max-height: 100%;
-        overflow-y: auto;
-      } */
-      /* Table Styles */
       table {
         width: 100%;
         border-collapse: collapse;
@@ -360,25 +339,4 @@ tr:hover {
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }    
-    th, td {
-        /* padding: 5px; */
-        /* padding-top: 50px; */
-    }
-    /* .enrolled{
-        display: none;
-    }  */
-    /* table .city{
-        font-size: 12px;
-    } */
-    /* Student Info Styles */
-     /* .student-info img {
-        width: 30px;
-        height: 30px;
-    }
-    .student-info .email{
-        font-size: 10px;
-    }
-    .student-info .name {
-        font-size: 10px;
-    } */
 }

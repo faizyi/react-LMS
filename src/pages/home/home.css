@@ -1,0 +1,146 @@
+/* home.css */
+
+.home-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  z-index: 1; /* Ensure header is above video */
+}
+
+.home-header .logo {
+  font-size: 2em;
+  word-spacing: 50px;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(0.8); /* Adjust contrast */
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Set black overlay with 50% opacity */
+}
+.content{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Add position relative to enable z-index */
+  z-index: 2; /* Ensure buttons are above the overlay */
+  color: #d4d0d0;
+}
+
+.content h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.content p {
+  /* padding-left: 5px; */
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+.buttons {
+  position: relative; /* Add position relative to enable z-index */
+  z-index: 2; /* Ensure buttons are above the overlay */
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn {
+  font-family: "Archivo Black", sans-serif;
+  cursor: pointer;
+  display: inline-block;
+  background-color: #fff;
+  color: #333;
+  padding: 15px 30px;
+  font-size: 1em;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+  text-decoration: none; /* Remove default link underline */
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  z-index: 1; /* Ensure footer is above video */
+}
+
+
+
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .content {
+    padding: 30px;
+  }
+
+  .content h1 {
+    font-size: 2.5em;
+  }
+
+  .content p {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .content {
+    padding: 20px;
+  }
+
+  .content h1 {
+    font-size: 2em;
+  }
+
+  .content p {
+    font-size: 0.9em;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.8em;
+  }
+}

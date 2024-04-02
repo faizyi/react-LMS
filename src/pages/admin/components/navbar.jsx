@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 import './style.css'
-import logo from '../../../assets/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faCaretDown,faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { auth, onAuthStateChanged, signOut, doc, getDoc,db } from '../../../firebase/firebase';
@@ -45,12 +44,9 @@ export default function Navbar() {
   }, [])
   return (
     <div className='header'>
-      {/* {
-        loader ? <div className='loader-container'><div className='loader'></div></div> : */}
       <nav className="navbar">
         <div className="navbar-left">
           <h1 className='logo'>LMS</h1>
-          {/* <img className='logo' src={logo} alt="" /> */}
         </div>
         <div className="navbar-right">
           <div className="user-info" onClick={toggleDropdown}>
@@ -87,7 +83,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-      {/* } */}
     </div>
   )
 }

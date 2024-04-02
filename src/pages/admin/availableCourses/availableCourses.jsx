@@ -14,6 +14,7 @@ export default function AvailableCourses() {
         const allCoursesData = [];
         querySnapshot.forEach((doc) => {
           const data = doc.data();
+          console.log(data);
           allCoursesData.push({ id: doc.id, ...data });
         });
         setAllCourses(allCoursesData);
@@ -32,20 +33,18 @@ export default function AvailableCourses() {
       </div>
       <div className='all-course-container'>
       {
-        loader ? <div className='all-courses-loader'><div className='loader'></div><p>Loading.....</p></div> :
+        loader ? <div className='all-courses-loader'><div className='loader'></div></div> :
         <div>
           
 
         
           {
-        allCourses.map((items)=>{
+        allCourses.map((items,index)=>{
           return(
-            <div key={items} className="all-courses-card">
+            <div key={index} className="all-courses-card">
             <img src={items.courseImg} alt=""/>
             <h3>{items.courseName}</h3>
-            <p>Website Design & Develop the website with web applications
-            Website Design & Develop the website with web applications
-            </p>
+            <p>{items.courseDescription}</p>
           </div>
           )
         })

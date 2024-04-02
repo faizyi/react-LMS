@@ -4,8 +4,7 @@ import Swal from 'sweetalert2'
 import { auth, doc, db, collection, getDoc, onAuthStateChanged,getDocs, } from '../../../firebase/firebase';
 export default function AllStudents() {
     const [studentData,setStudentData] = useState([])
-    const [loader, setLoader] = useState(true);
-    const [students,setStudent] = useState()
+    const [loader, setLoader] = useState(false);
     const [courseName,setCouresName] = useState()
     const [teacher,setTeacher] = useState()
     const [days,setDays] = useState()
@@ -14,12 +13,10 @@ export default function AllStudents() {
             setLoader(true)
             onAuthStateChanged(auth, async(user) => {
                 if (user) {
-                    // setUser(user)
                     const userDocRef = doc(db, 'students', user.uid);
                     const userDocSnap = await getDoc(userDocRef);
                     if(userDocSnap.exists()){
                         const userData = userDocSnap.data();
-                        // setSelectedCourse(userData.selectedCourse)
                         try {
                             const querySnapshot = await getDocs(collection(db, userData.selectedCourse));
                             const allCoursesData = [];
@@ -31,7 +28,6 @@ export default function AllStudents() {
                               allCoursesData.push({ id: doc.id, ...data });
                             });
                             setStudentData(allCoursesData);
-                            studentData.length > 1 ? setStudent("Student is Available") : setStudent("Students are Available")
                             setLoader(false)
                           } catch (error) {
                             Swal.fire('Error fetching courses!', error.message, 'error');
@@ -62,7 +58,8 @@ export default function AllStudents() {
 <div className='all-students'>
 
     <div className='heading'>
-        <h2>{studentData.length} {students}</h2>
+        <h2>{studentData.length > 1 ? `${studentData.length} Students are Available` : 
+        `${studentData.length} Student is Available`}</h2>
             </div>
 
             <div className='table-container'>
@@ -71,7 +68,7 @@ export default function AllStudents() {
                 <tr>
                     <th>Students</th>
                     <th className='enrolled'>Enrolled Courses</th>
-                    <th>City</th>
+                    <th className='city'>City</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,7 +78,7 @@ export default function AllStudents() {
                             <tr key={index}>
                             <td>
                                 <div className='student-info'>
-                                    <div className='student-pic'><img src={data.studentProfile} alt="" /></div>
+                                <div className='student-pic'><img src={data.studentProfile} alt="" /></div>
                                     <div><p style={{textTransform : "capitalize"}} className='name'>{data.studentName}</p><p className='email'>{data.studentEmail}</p></div>
                                 </div>
                             </td>
